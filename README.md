@@ -17,6 +17,7 @@ Pequeña aplicación de una lista de tareas realizada con Spring Boot. Se pueden
 
 * [Java](https://docs.oracle.com/javase/8/docs/api/)
 * [Spring-Boot](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
+* [Thymeleaf](https://www.thymeleaf.org/documentation.html)
 * [MySQL](https://dev.mysql.com/doc/)
 * [HTML5](https://developer.mozilla.org/es/docs/HTML/HTML5)
 * [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
