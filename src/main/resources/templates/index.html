@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tareas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+    <body>
+        <div class="container mt-4">
+            <form th:action="@{/guardar}" th:object="${tarea}" method="POST">
+                <label>Agregar tarea</label>
+                <input class="form-control" th:field="*{descripcion}" type="text" placeholder="Descripción">
+                <div>
+                    <input th:field="*{urgente}" type="checkbox" th:checked="${tarea.setUrgenteTrue()}"/>
+                    <label>Urgente</label>
+
+                </div>
+                <div class="card-body">
+                    <input class="btn btn-success" type="submit" value="Guardar">
+                </div>
+            </form>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>DESCRIPCIÓN</th>
+                    <th>ES URGENTE</th>
+                    <th>ACCIONES</th>
+                </tr>
+                </thead>
+                <body>
+                <tr th:each="tarea:${listaTareas}">
+                    <td th:text="${tarea.descripcion}"></td>
+                    <td th:text="${tarea.urgente} ? 'SI' : 'NO'"></td>
+                    <td>
+                        <a class="btn btn-warning" th:href="@{/editar/}+${tarea.id}">Editar</a>
+                        <a class="btn btn-danger" th:onclick="eliminar([[${tarea.id}]])">Eliminar</a>
+                    </td>
+                </tr>
+                </body>
+            </table>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"
+                integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="funciones.js"></script>
+    </body>
+</html>
