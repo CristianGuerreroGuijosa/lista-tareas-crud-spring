@@ -15,7 +15,6 @@
                 <div>
                     <input th:field="*{urgente}" type="checkbox" th:checked="${tarea.setUrgenteTrue()}"/>
                     <label>Urgente</label>
-
                 </div>
                 <div class="card-body">
                     <input class="btn btn-success" type="submit" value="Guardar">
@@ -44,6 +43,33 @@
         <script src="https://code.jquery.com/jquery-3.5.1.js"
                 integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <script src="funciones.js"></script>
+        <script>
+            function eliminar(id) {
+                swal({
+                    title: "¿Seguro que deseas eliminar la tarea?",
+                    text: "¡No se podrá recuperar la tarea una vez eliminada!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((OK) => {
+                        if (OK) {
+                            $.ajax({
+                                url:"/eliminar/" + id,
+                                success: function (res) {
+                                    console.log(res);
+                                },
+                            })
+                            swal("La tarea ha sido eliminada.", {
+                                icon: "success",
+                            }).then((ok)=>{
+                                if (ok){
+                                    location.href = "/";
+                                }
+                            });
+                        }
+                    });
+            }
+        </script>
     </body>
 </html>

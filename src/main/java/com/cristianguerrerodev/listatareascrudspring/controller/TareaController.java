@@ -29,7 +29,11 @@ public class TareaController {
 
     @PostMapping({"/guardar", "/editar/{id}"})
     public String insertar(@Validated Tarea t){
-        tareaService.insertar(t);
+
+        if (!t.getDescripcion().isEmpty()){
+            tareaService.insertar(t);
+        }
+
         return "redirect:/index";
     }
 
