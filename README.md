@@ -25,4 +25,4 @@ Pequeña aplicación de una lista de tareas realizada con Spring Boot. Se pueden
 * [JQuery](https://api.jquery.com/)
 
 ---
-[Cristian Guerrero](https://github.com/CristianGuerreroGuijosa)
+[Cristian Guerrero](https://github.com/cristianguerrerodev)
