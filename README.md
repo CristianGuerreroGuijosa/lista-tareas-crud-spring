@@ -2,6 +2,10 @@
 
 Pequeña aplicación de una lista de tareas realizada con Spring Boot. Se pueden agregar tareas, indicando si es una tarea urgente o no, también es posbile editarlas o eliminarlas de la lista.
 
+### Imágenes
+![nueva tarea]
+(https://raw.githubusercontent.com/cristianguerrerodev/lista-tareas-crud-spring/master/capturas/captura_lista01.png)
+
 ### Pre-requisitos 📋
 
 * Java Development Kit 8
