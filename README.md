@@ -2,7 +2,7 @@
 
 Pequeña aplicación de una lista de tareas realizada con Spring Boot. Se pueden agregar tareas, indicando si es una tarea urgente o no, también es posbile editarlas o eliminarlas de la lista.
 
-### Imágenes ⚡
+### Imágenes 📷
 
 <img src="capturas/captura_lista01.png" width=463 height=370>
 <img src="capturas/captura_lista02.png" width=463 height=370>
