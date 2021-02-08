@@ -9,9 +9,9 @@ Pequeña aplicación de una lista de tareas realizada con Spring Boot. Se pueden
 
 ### Instalación 🔧
 
-1.- Será necesario crear una base de datos llamada "db_lista_tareas" en MySQL. El puerto por el que escuchará es el 3306.
-2.- Ejecutar el archivo lista-tareas-crud-spring-0.0.1-SNAPSHOT.jar ubicado en el directorio target.
-3.- Abrir la dirección localhost:9090 desde el navegador.
+* Será necesario crear una base de datos llamada "db_lista_tareas" en MySQL. El puerto por el que escuchará es el 3306.
+* Ejecutar el archivo lista-tareas-crud-spring-0.0.1-SNAPSHOT.jar ubicado en el directorio raíz.
+* Abrir la dirección localhost:9090 desde el navegador.
 
 ## Construido con 🛠️
 
@@ -25,4 +25,4 @@ Pequeña aplicación de una lista de tareas realizada con Spring Boot. Se pueden
 * [JQuery](https://api.jquery.com/)
 
 ---
-[Cristian Guerrero](https://github.com/CristianGuerreroGuijosa)
+[Cristian Guerrero Guijosa](https://github.com/cristianguerrerodev)
