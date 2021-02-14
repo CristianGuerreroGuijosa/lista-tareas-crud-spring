@@ -6,72 +6,84 @@
     <title>Lista de tareas - Editar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
-    <body>
-        <div class="container mt-4">
-            <form th:action="@{/editar/}+${tarea.id}" th:object="${tarea}" method="POST">
-                <label>Editar tarea</label>
-                <input class="form-control" th:field="*{descripcion}" type="text" placeholder="Descripción">
-                <div>
-                    <input th:field="*{urgente}" type="checkbox" th:value="${tarea.isUrgente()} ? 'ckecked' : 'off'"/>
-                    <label>Urgente</label>
-                </div>
-                <div class="card-body">
-                    <input class="btn btn-warning" th:href="@{/editar/}+${tarea.id}" type="submit" value="Editar">
-                    <a class="btn btn-danger" th:onclick="eliminar([[${tarea.id}]])">Eliminar</a>
-                    <a class="btn btn-info float-right" th:href="@{/}">Volver</a>
-                </div>
-            </form>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>DESCRIPCIÓN</th>
-                    <th>ES URGENTE</th>
-                    <th>ACCIONES</th>
-                </tr>
-                </thead>
-                <body>
-                <tr th:each="tarea:${listaTareas}">
-                    <td th:text="${tarea.descripcion}"></td>
-                    <td th:text="${tarea.urgente} ? 'SI' : 'NO'"></td>
-                    <td>
-                        <a class="btn btn-warning" th:href="@{/editar/}+${tarea.id}">Editar</a>
-                        <a class="btn btn-danger" th:onclick="eliminar([[${tarea.id}]])">Eliminar</a>
-                    </td>
-                </tr>
-                </body>
-            </table>
+<body>
+<div class="container mt-4">
+    <form th:action="@{/editar/}+${tarea.id}" th:object="${tarea}" method="POST">
+        <label>Editar tarea</label>
+        <input class="form-control" th:field="*{descripcion}" type="text" placeholder="Descripción">
+        <div>
+            <input th:field="*{urgente}" type="checkbox" th:value="${tarea.isUrgente()} ? 'ckecked' : 'off'"/>
+            <label>Urgente</label>
         </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.js"
-                integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <script>
-            function eliminar(id) {
-                swal({
-                    title: "¿Seguro que deseas eliminar la tarea?",
-                    text: "¡No se podrá recuperar la tarea una vez eliminada!",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                    .then((OK) => {
-                        if (OK) {
-                            $.ajax({
-                                url:"/eliminar/" + id,
-                                success: function (res) {
-                                    console.log(res);
-                                },
-                            })
-                            swal("La tarea ha sido eliminada.", {
-                                icon: "success",
-                            }).then((ok)=>{
-                                if (ok){
-                                    location.href = "/";
-                                }
-                            });
+        <div class="card-body">
+            <input class="btn btn-warning" th:href="@{/editar/}+${tarea.id}" type="submit" value="Editar">
+            <a class="btn btn-danger" th:onclick="eliminar([[${tarea.id}]])">Eliminar</a>
+            <a class="btn btn-info float-right" th:href="@{/}">Volver</a>
+        </div>
+    </form>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>DESCRIPCIÓN</th>
+            <th>ES URGENTE</th>
+            <th>ACCIONES</th>
+        </tr>
+        </thead>
+        <body>
+        <tr th:each="tarea:${listaTareas}">
+            <td th:text="${tarea.descripcion}"></td>
+            <td th:text="${tarea.urgente} ? 'SI' : 'NO'"></td>
+            <td>
+                <a class="btn btn-warning" th:href="@{/editar/}+${tarea.id}">Editar</a>
+                <a class="btn btn-danger" th:onclick="eliminar([[${tarea.id}]])">Eliminar</a>
+            </td>
+        </tr>
+        </body>
+    </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    function eliminar(id) {
+        swal({
+            title: "¿Seguro que deseas eliminar la tarea?",
+            text: "¡No se podrá recuperar la tarea una vez eliminada!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((OK) => {
+                if (OK) {
+                    $.ajax({
+                        url: "/eliminar/" + id,
+                        success: function (res) {
+                            console.log(res);
+                        },
+                    })
+                    swal("La tarea ha sido eliminada.", {
+                        icon: "success",
+                    }).then((ok) => {
+                        if (ok) {
+                            location.href = "/";
                         }
                     });
-            }
-        </script>
-    </body>
+                }
+            });
+    }
+</script>
+</body>
+<footer class="footer">
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-2">
+                <p><i class="fab fa-github"></i></i> <a href="https://github.com/cristianguerrerodev" target="_blank">/cristianguerrerodev</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
 </html>

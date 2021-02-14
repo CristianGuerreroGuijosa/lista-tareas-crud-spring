@@ -19,7 +19,7 @@ public class TareaController {
     private TareaService tareaService;
 
     @GetMapping({"/", "/index"})
-    public String listar(Model model){
+    public String listar(Model model) {
         List<Tarea> listaTareas = tareaService.listar();
         model.addAttribute("listaTareas", listaTareas);
         model.addAttribute("tarea", new Tarea());
@@ -28,9 +28,9 @@ public class TareaController {
     }
 
     @PostMapping({"/guardar", "/editar/{id}"})
-    public String insertar(@Validated Tarea t){
+    public String insertar(@Validated Tarea t) {
 
-        if (!t.getDescripcion().isEmpty()){
+        if (!t.getDescripcion().isEmpty()) {
             tareaService.insertar(t);
         }
 
@@ -38,7 +38,7 @@ public class TareaController {
     }
 
     @GetMapping("/editar/{id}")
-    public String actualizar(@PathVariable long id, Model model){
+    public String actualizar(@PathVariable long id, Model model) {
 
         List<Tarea> listaTareas = tareaService.listar();
         model.addAttribute("listaTareas", listaTareas);
@@ -52,7 +52,7 @@ public class TareaController {
     }
 
     @GetMapping("/eliminar/{id}")
-    public String eliminar(@PathVariable long id){
+    public String eliminar(@PathVariable long id) {
         tareaService.eliminar(id);
         return "redirect:/";
     }

@@ -44,7 +44,7 @@ public class Tarea {
         this.urgente = urgente;
     }
 
-    public void setUrgenteTrue(){
+    public void setUrgenteTrue() {
         this.urgente = true;
     }
 
