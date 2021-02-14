@@ -32,7 +32,6 @@ urgente o no, también es posbile editarlas o eliminarlas de la lista.
 * [HTML5](https://developer.mozilla.org/es/docs/HTML/HTML5)
 * [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
 * [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
-* [JQuery](https://api.jquery.com/)
 
 ---
 [Cristian Guerrero Guijosa](https://github.com/cristianguerrerodev)
